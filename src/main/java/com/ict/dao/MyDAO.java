@@ -1,5 +1,10 @@
 package com.ict.dao;
 
-public class MyDAO {
-
+public interface MyDAO {
+	
+	
+	List<TVO> selectTVOList(int begin, int end)throws Exception;
+	
+	
+	
 }
