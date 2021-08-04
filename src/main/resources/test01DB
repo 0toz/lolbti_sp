@@ -11,7 +11,8 @@ foreign key(exm_num) references test01_a(exm_num)
 create table test01_a(
 exm_num number not null primary key,
 imp number,
-sug varchar2(30)
+sug varchar2(30),
+quest varchar2(100)
 );
 
 drop table test01;
@@ -24,12 +25,12 @@ CREATE SEQUENCE  test_seq
 
 
 
-insert into test01_a values(1,1,'탑');
-insert into test01_a values(2,1.1,'미드');
-insert into test01_a values(3,1.3,'탑');
-insert into test01_a values(4,0.7,'서폿');
-insert into test01_a values(5,1,'탑');
-insert into test01_a values(6,1,'서폿');
+insert into test01_a values(1,-1,'정글','종종 다른 사람들에게 자신을 정당화시켜야 할 것 만 같은 기분이 듭니다.');
+insert into test01_a values(2,1.1,'정글','집과 생활 환경이 잘 정돈되어 있습니다.');
+insert into test01_a values(3,1.3,'서폿','주목받는 일에는 관심이 없습니다.');
+insert into test01_a values(4,0.7,'원딜','본인이 창의적이기보다 현실적인 사람이라고 생각합니다.');
+insert into test01_a values(5,1,'정글','사람들 때문에 화나는 일이 거의 없습니다.');
+insert into test01_a values(6,1,'정글', '보통 여행 계획은 철저하게 세우는 편입니다.');
 
 insert into test01 values(test_seq.nextval,'192.168.0.25',1,0, sysdate);
 insert into test01 values(test_seq.nextval,'192.168.0.25',2,4, sysdate);

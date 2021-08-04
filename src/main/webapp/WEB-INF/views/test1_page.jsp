@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,94 +124,24 @@ height: 40px;
 		<div style="border-bottom: 2px solid #84b7b8; width: 1000px; height: 2px; margin-left: auto; margin-right: auto; " >
 			
 		</div>
-			
-		<div class="Q">
-			<div class="Q_title">
-				1. 다른사람들에게 자신을 소개하는 것을 어려워합니다.
-			</div>	
-			<div class="Q_answer">
-				<span class="agree">동의</span>
-				<div class="chk agree2" role="radio"></div>
-				<div class="chk agree1" role="radio"></div>
-				<div class="chk soso" role="radio"></div>
-				<div class="chk disagree1" role="radio"></div>
-				<div class="chk disagree2" role="radio"></div>
-				<span class="disagree">비동의</span>
-			</div>
-		
-		</div>
-		<div class="Q">
-			<div class="Q_title">
-				2. 다른사람들에게 자신을 소개하는 것을 어려워합니다.
-			</div>	
-						<div class="Q_answer">
-				<span class="agree">동의</span>
-				<div class="chk agree2" role="radio"></div>
-				<div class="chk agree1" role="radio"></div>
-				<div class="chk soso" role="radio"></div>
-				<div class="chk disagree1" role="radio"></div>
-				<div class="chk disagree2" role="radio"></div>
-				<span class="disagree">비동의</span>
-			</div>
-		
-		</div>
-		<div class="Q">
-			<div class="Q_title">
-				3. 다른사람들에게 자신을 소개하는 것을 어려워합니다.
-			</div>	
-						<div class="Q_answer">
-				<span class="agree">동의</span>
-				<div class="chk agree2" role="radio"></div>
-				<div class="chk agree1" role="radio"></div>
-				<div class="chk soso" role="radio"></div>
-				<div class="chk disagree1" role="radio"></div>
-				<div class="chk disagree2" role="radio"></div>
-				<span class="disagree">비동의</span>
-			</div>
-		
-		</div>
-		<div class="Q">
-			<div class="Q_title">
-				4. 다른사람들에게 자신을 소개하는 것을 어려워합니다.
-			</div>	
-					<div class="Q_answer">
-				<span class="agree">동의</span>
-				<div class="chk agree2" role="radio"></div>
-				<div class="chk agree1" role="radio"></div>
-				<div class="chk soso" role="radio"></div>
-				<div class="chk disagree1" role="radio"></div>
-				<div class="chk disagree2" role="radio"></div>
-				<span class="disagree">비동의</span>
-			</div>
-		</div>
-		<div class="Q">
-			<div class="Q_title">
-				5. 다른사람들에게 자신을 소개하는 것을 어려워합니다.
-			</div>	
+		<c:forEach var="k" items = "${list }">
+				
+			<div class="Q">
+				<div class="Q_title">
+					<h2>${k.idx} . ${k.quest }</h2>
+				</div>	
 				<div class="Q_answer">
-				<span class="agree">동의</span>
-				<div class="chk agree2" role="radio"></div>
-				<div class="chk agree1" role="radio"></div>
-				<div class="chk soso" role="radio"></div>
-				<div class="chk disagree1" role="radio"></div>
-				<div class="chk disagree2" role="radio"></div>
-				<span class="disagree">비동의</span>
+					<span class="agree">동의</span>
+					<div class="chk agree2" role="radio"></div>
+					<div class="chk agree1" role="radio"></div>
+					<div class="chk soso" role="radio"></div>
+					<div class="chk disagree1" role="radio"></div>
+					<div class="chk disagree2" role="radio"></div>
+					<span class="disagree">비동의</span>
+				</div>
+			
 			</div>
-		</div>
-		<div class="Q">
-			<div class="Q_title">
-				6. 다른사람들에게 자신을 소개하는 것을 어려워합니다.
-			</div>	
-					<div class="Q_answer">
-				<span class="agree">동의</span>
-				<div class="chk agree2" role="radio"></div>
-				<div class="chk agree1" role="radio"></div>
-				<div class="chk soso" role="radio"></div>
-				<div class="chk disagree1" role="radio"></div>
-				<div class="chk disagree2" role="radio"></div>
-				<span class="disagree">비동의</span>
-			</div>
-		</div>
+		</c:forEach>
 
 		<div class="next_btn">
 			<a href=""><i class="fas fa-chevron-circle-right" style="font-size: 60px;" ></i></a>

@@ -17,11 +17,11 @@ public class MyDAOImpl implements MyDAO {
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public List<TVO> selectTVOList(int begin, int end) throws Exception {
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("begin", begin);
-		map.put("end",end);
-		return sqlSessionTemplate.selectList("list", map);
+	public List<TVO> selectTVOList(int begin) throws Exception {
+		
+		
+		
+		return sqlSessionTemplate.selectList("list" );
 	}
 	
 }
