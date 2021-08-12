@@ -15,6 +15,42 @@ public class MyController {
 
 	@Autowired
 	private MyService myService;
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("main.do")
 	public ModelAndView MainCommand() {
@@ -41,10 +77,10 @@ public class MyController {
 
 
 	@RequestMapping("test1_page.do")
-	public ModelAndView Test1_pageCommand(@RequestParam("idx")int idx) {
+	public ModelAndView Test1_pageCommand(@RequestParam("idx")Integer idx ) {
 		try {
 			ModelAndView mv = new ModelAndView("test1_page");
-
+			
 			List<TVO> list = myService.selectTVOList(idx);
 			
 			mv.addObject("list",list);
@@ -64,16 +100,11 @@ public class MyController {
 			return new ModelAndView("error");
 		}
 	}
-	@RequestMapping("QnA.do")
-	public ModelAndView QnACommand(@RequestParam("")) {
-		try {
-			ModelAndView mv = new ModelAndView("QnA");
-			return mv;
-		} catch (Exception e) {
-			System.out.println(e);
-			return new ModelAndView("error");
-		}
-	}
+	/*
+	 * @RequestMapping("QnA.do") public ModelAndView QnACommand(@RequestParam("")) {
+	 * try { ModelAndView mv = new ModelAndView("QnA"); return mv; } catch
+	 * (Exception e) { System.out.println(e); return new ModelAndView("error"); } }
+	 */
 
 	@RequestMapping("test_main.do")
 	public ModelAndView test01Command() {

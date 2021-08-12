@@ -21,5 +21,10 @@ public class MyserviceImpl implements MyService {
 		return myDAO.selectTVOList(begin);
 	}
 	
+	@Override
+	public int giveID(int idx) throws Exception {
+
+		return myDAO.giveID(idx);
+	}
 	
 }

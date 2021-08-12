@@ -8,7 +8,7 @@ public interface MyService {
 
 	List<TVO> selectTVOList(int begin) throws Exception;
 	//int insertTVO(TVO tvo) throws Exception;
-	
+	int giveID(int idx) throws Exception;
 	
 	
 	

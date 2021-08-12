@@ -18,6 +18,12 @@
 	<update id="update" parameterType="com.ict.vo.TVO">
 		update guestbook set name=#{name}, subject=#{subject}, content=#{content}, email=#{email} where idx=#{idx}
 	</update>
+	
+	<select id="giveId">
+		select idx from 
+	</select>
+	
+	
 </mapper>
 
 

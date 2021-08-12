@@ -24,4 +24,9 @@ public class MyDAOImpl implements MyDAO {
 		return sqlSessionTemplate.selectList("list" );
 	}
 	
+	@Override
+	public int giveID(int idx) throws Exception {
+		
+		return sqlSessionTemplate.giveId("idx");
+	}
 }
