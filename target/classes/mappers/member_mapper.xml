@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="member">
+	<select id="select_test_result" resultType="com.ict.vo.Test_AnswerVO">
+		select * from (select * from testAnswer) ta, (select * from userDB) u where ta.pi = #{pi} order by ta.exm_num asc;
+	</select>
+	<select id="select" resultType="com.ict.vo.MVO">
+		select * from userDB where id = #{id}
+	</select>
+	<insert id="insert" parameterType="com.ict.vo.MVO">
+		insert into userDB values(#{id},#{pwd},#{nickname},#{gender},#{email},sysdate,#{pi})   
+	</insert>
+
+	<delete id="delete" parameterType="String">
+		delete from userDB where id = #{id}
+	</delete>
+	<update id="update" parameterType="com.ict.vo.MVO">
+		update userDB set pwd=#{pwd}, nickname=#{nickname}, gender=#{gender}, email=#{email} where id=#{id}
+	</update>
+	<select id="login" parameterType="com.ict.vo.MVO" resultType="com.ict.vo.MVO">
+		select * from userDB where id = #{id} and pwd = #{pwd}
+	</select>
+
+	
+
+</mapper>
+
+
+
+
+
+
+

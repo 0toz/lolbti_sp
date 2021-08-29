@@ -53,7 +53,6 @@ color: #f1edd4;
 
 </style>
 
-<script src="https://kit.fontawesome.com/702e98149e.js" crossorigin="anonymous"></script>
 
 </head>
 <body>

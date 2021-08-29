@@ -1,43 +1,111 @@
-create table test01(
+create table testDBMain(
+test_name varchar2(40),
+file_name varchar2(100),
+f_name varchar2(100),
+dsc varchar2(40),
+PRIMARY KEY(test_name)
+);
+
+create table testDB(
 idx number,
-ip varchar2(40),
+test_name varchar2(40),
 exm_num number,
-ans number(4),
-regdate DATE,
+imp number(4),
+sug varchar2(20),
+quest varchar2(100),
 PRIMARY KEY(idx),
-foreign key(exm_num) references test01_a(exm_num)
+foreign key(test_name) references testDBMain(test_name)
 );
 
-create table test01_a(
-exm_num number not null primary key,
+
+
+create table testAnswer(
+idx number,
+pi varchar2(20),
+exm_num number,
+test_name varchar2(40),
 imp number,
-sug varchar2(30),
-quest varchar2(100)
+answer number,
+PRIMARY KEY(idx)
 );
 
-drop table test01;
-drop table test01_a;
-DELETE FROM test01;
+create table userDB(
+id varchar2(40),
+pwd varchar2(40),
+nickname varchar2(30) UNIQUE,
+gender varchar2(6),
+email varchar2(40),
+reg varchar(20),
+pi varchar2(20),
+PRIMARY KEY(id)
+);
+
+create table QnADB(
+idx varchar2(40),
+kind varchar2(30),
+id varchar2(40),
+title varchar2(20),
+content varchar2(1000),
+nick_name varchar2(30) unique,
+hit number,
+groups varchar2(10),
+reg varchar2(20),
+file_name varchar2(100),
+f_name varchar2(100),
+PRIMARY KEY(idx)
+);
+
+create table comment_DB(
+c_idx number,
+id varchar2(40),
+nickname varchar2(30),
+title varchar2(200),
+groups varchar2(10),
+reg varchar(20),
+PRIMARY KEY(c_idx),
+foreign key(id) references userDB(id)
+);
+
+drop table test;
+drop table test_answer;
+DELETE FROM test;
+
 
 
 CREATE SEQUENCE  test_seq
  INCREMENT BY 1 START WITH 1;
 
 
+CREATE SEQUENCE  pi_seq
+ INCREMENT BY 1 START WITH 1;
 
-insert into test01_a values(1,-1,'정글','종종 다른 사람들에게 자신을 정당화시켜야 할 것 만 같은 기분이 듭니다.');
-insert into test01_a values(2,1.1,'정글','집과 생활 환경이 잘 정돈되어 있습니다.');
-insert into test01_a values(3,1.3,'서폿','주목받는 일에는 관심이 없습니다.');
-insert into test01_a values(4,0.7,'원딜','본인이 창의적이기보다 현실적인 사람이라고 생각합니다.');
-insert into test01_a values(5,1,'정글','사람들 때문에 화나는 일이 거의 없습니다.');
-insert into test01_a values(6,1,'정글', '보통 여행 계획은 철저하게 세우는 편입니다.');
+//test_seq.nextval
 
-insert into test01 values(test_seq.nextval,'192.168.0.25',1,0, sysdate);
-insert into test01 values(test_seq.nextval,'192.168.0.25',2,4, sysdate);
-insert into test01 values(test_seq.nextval,'192.168.0.25',3,3, sysdate);
-insert into test01 values(test_seq.nextval,'192.168.0.25',4,2, sysdate);
-insert into test01 values(test_seq.nextval,'192.168.0.25',5,2, sysdate);
-insert into test01 values(test_seq.nextval,'192.168.0.25',6,2, sysdate);
+insert into testDB values(test_seq.nextval, '라인테스트', 1, -1,'정글','종종 다른 사람들에게 자신을 정당화시켜야 할 것 만 같은 기분이 듭니다.');
+insert into testDB values(test_seq.nextval, '라인테스트', 2, 1.1,'정글','집과 생활 환경이 잘 정돈되어 있습니다.');
+insert into testDB values(test_seq.nextval, '라인테스트', 3, 1.3,'서폿','주목받는 일에는 관심이 없습니다.');
+insert into testDB values(test_seq.nextval, '라인테스트', 4, 0.7,'원딜','본인이 창의적이기보다 현실적인 사람이라고 생각합니다.');
+insert into testDB values(test_seq.nextval, '라인테스트', 5, 1,'정글','사람들 때문에 화나는 일이 거의 없습니다.');
+insert into testDB values(test_seq.nextval, '라인테스트', 6, 1,'정글', '보통 여행 계획은 철저하게 세우는 편입니다.');
+
+insert into test_answer values(1,'라인테스트', 1, 0);
+insert into test_answer values(2,'라인테스트', 1.5, 4);
+insert into test_answer values(3,'라인테스트', 1, 3);
+insert into test_answer values(4,'라인테스트', 1, 1);
+insert into test_answer values(5,'라인테스트', 1, 2);
+insert into test_answer values(6,'라인테스트', 1.5, 2);
+
+
+
+
+select * from (select * from testAnswer) ta, (select * from userDB) u where ta.pi = u.pi order by ta.exm_num asc;
+
+
+
+
+
+
+
 
 select * from test01 t where ip = '192.168.0.25' order by t.exm_num;
 select t.*, a.imp, a.sug FROM test01 t, test01_a a where ip = '192.168.0.25' and t.exm_num = a.exm_num;
@@ -46,3 +114,7 @@ select t.*, a.imp, a.sug, (t.ans*a.imp) p_point FROM test01 t, test01_a a where 
 
 select sug, sum(p_point) from
 (select t.*, a.imp, a.sug, (t.ans*a.imp) p_point FROM test01 t, test01_a a where ip = '192.168.0.25' and t.exm_num = a.exm_num) group by sug;
+
+
+
+

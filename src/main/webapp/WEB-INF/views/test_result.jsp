@@ -49,7 +49,6 @@ width: 192px;
 
 </style>
 
-<script src="https://kit.fontawesome.com/702e98149e.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -109,7 +108,7 @@ width: 192px;
 		 		<a href=""><img alt="" src="../images/lane.jpg" width="90%" height="90%"></a>
 		 		<h5>라인테스트</h5>
 	 		</div>
-	 		<div class="test_list_mini" ">
+	 		<div class="test_list_mini">
 		 		<a href=""><img alt="" src="../images/lane.jpg" width="90%" height="90%"></a>
 		 		<h5>라인테스트</h5>
 	 		</div>

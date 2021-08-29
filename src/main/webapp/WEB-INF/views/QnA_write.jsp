@@ -45,8 +45,25 @@ margin-bottom: 20px;
 }
 
 </style>
-
-<script src="https://kit.fontawesome.com/702e98149e.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	function list_go(f) {
+		f.action="list.do?cPage=${cPage}";
+		f.submit();
+	}
+	function write_ok(f) {
+		// 유효성 검사
+		for (var i = 0; i < f.elements.length; i++) {
+			if(f.elements[i].value==""){
+				if(i==3||i==2) continue;
+				alert(f.elements[i].name+"을(를) 입력해주세요");
+				f.elements[i].focus();
+				return;
+			}
+		}
+		f.action="write_ok.do";
+		f.submit();
+	}
+</script>
 
 </head>
 <body>
@@ -79,12 +96,21 @@ margin-bottom: 20px;
 				<input type="file" name="file_name">
 			</div>
 	
+			<div>첨부파일</div>
+			<div align="left"><input type="file" name="f_name"></div>
+				
+				
 			<div class="submit_btn">
-			<a href=""><span>제출하기</span></a>
+				<input type="button" value="입력" onclick="write_ok(this.form)" />
+				<input type="hidden" name="id" value="${id}"> 
 			</div>	
+			<div class="submit_btn">
+			<input type="button" value="목록" onclick="list_go(this.form)" /> 
+				<input type="hidden" name="cPage" value="${cPage}">
+				</div>
 		</div>
 		
-	
+	</div>
 <%@ include file="footer.jsp" %>
 </div>
 </body>

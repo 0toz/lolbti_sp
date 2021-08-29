@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="QnA">
+	
+	<!-- 건의사항 게시판에 관련된 DB -->
+	
+	
+	<select id="count" resultType="int">
+		select count(*) from QnADB
+	</select>
+	
+	<!-- 시작번호와 끝번호를 받아서 해당 리스트 출력   -->
+	<select id="list" parameterType="Map" resultType="com.ict.vo.QVO">
+		select * from (
+			select rownum r_num, a.* from (
+				select * from QnADB order by b_idx desc
+			) a
+		) where r_num between #{begin} and #{end}
+	</select>
+	
+	<!-- 원글 삽입 -->
+	<insert id = "insert" parameterType="com.ict.vo.QVO">
+		insert into QnADB values(QnADB_seq.nextval, #{kind},#{id},#{title},#{content}, #{nickname},  #{hit}, #{groups}, sysdate,
+		,#{file_name}, #{f_name})
+	</insert>
+	
+	<!-- 원글 hit 업데이트 -->
+	<update id="hitup" parameterType="String">
+		update QnADB set hit = hit + 1 where group = #{group}
+	</update>
+	
+	<!-- 원글 상세보기 -->
+	<select id="onelist" parameterType="String" resultType="com.ict.vo.QVO">
+		select * from QnADB where group = #{group}
+	</select>
+	
+	<!-- 댓글 가져오기 -->
+	<select id="c_list" parameterType="String" resultType="com.ict.vo.CVO">
+		select * from comment_DB where groups = #{groups} order by c_idx desc 
+	</select>
+	
+	<!-- 댓글 쓰기 -->
+	<insert id="c_insert" parameterType="com.ict.vo.CVO">
+		insert into comment_DB values(comment_t_seq.nextval, #{id}, #{nickname},#{title}, #{groups}, sysdate)
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<insert id="c_delete" parameterType="String">
+		delete from comment_DB where c_idx = #{c_idx}
+	</insert>
+	
+	<!-- 댓글 전체 삭제 -->
+	<delete id="c_delete_all" parameterType="String">
+		delete from comment_DB where c_idx = #{c_idx}
+	</delete>
+	<!-- 원글 삭제 -->
+	<delete id="delete" parameterType="String">
+		delete from QnADB where idx = #{idx}
+	</delete>
+	
+	<!-- 원글 업데이트 -->
+	<update id="update" parameterType="com.ict.vo.QVO">
+		update QnADB set title=#{title}, kind=#{kind}, 
+				content=#{content}, file_name=#{file_name} where idx = #{idx}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+

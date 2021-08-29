@@ -107,7 +107,6 @@ height: 40px;
 
 </style>
 
-<script src="https://kit.fontawesome.com/702e98149e.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -115,7 +114,7 @@ height: 40px;
 
 
 
-<div id="all"><!-- 전체박스 -->
+<div id="all"> <!-- 전체박스 -->
 	<div> <!-- 바디박스1111 -->
 		
 		<div id="way">

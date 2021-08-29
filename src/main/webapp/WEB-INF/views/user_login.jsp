@@ -30,6 +30,24 @@ margin-top : 20px;
 
 </style>
 
+<script type="text/javascript">
+	function login_go(f) {
+		if(f.id.value=="" || f.pw.value==""){
+			alert("id 혹은 pwd를 입력하세요");
+			f.id.value="";
+			f.pwd.value="";
+			f.id.focus();
+			return;
+		}
+		f.action="login_ok.do";
+		f.submit();
+	}
+	function join_go(f) {
+		alert("회원가입 하기");
+		f.action="join_ok.do";
+		f.submit();
+	}
+</script>
 
 </head>
 <body>
@@ -41,7 +59,7 @@ margin-top : 20px;
 	<div> <!-- 바디박스1111 -->
 		
 		<div >
-		<h2 style="margin-left: 60px; margin-right: auto; width: 280px; height: 50px;"> 관리자 로그인</h2>
+		<h2 style="margin-left: 60px; margin-right: auto; width: 280px; height: 50px;"> 로그인</h2>
 		</div>	
 		<div style="border-bottom: 2px solid #84b7b8; width: 1000px; height: 2px; margin-left: auto; margin-right: auto; " >
 		</div>
@@ -49,20 +67,21 @@ margin-top : 20px;
 		<div class="admin">
 			<table>
 				<tr>
-					<td>관리자 ID</td><td><input type="text"></td>
-					<td>관리자 PASSWORD</td><td><input type="password"></td>	
-					<td>관리자 IDENTITY</td><td><input type="text"></td>			
+					<th>아이디</th><td><input type="text" name="id"> </td>
+					<th>비밀번호</th><td><input type="password" name="pwd" ></td>
+								
 				</tr>
 			</table>
 		
 		</div>
 		
-	
+				<input type="button" value="회원가입" onclick="join_go(this.form)">
+				<input type="button" value="로그인" onclick="login_go(this.form)">
 		<div style="border-bottom: 2px solid #84b7b8; width: 1000px; height: 2px; margin-left: auto; margin-right: auto; " >
 		</div>
 		
-	</div>
 	
+	</div>
 <%@ include file="footer.jsp" %>
 </div>
 </body>
