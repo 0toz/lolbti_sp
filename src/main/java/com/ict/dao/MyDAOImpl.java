@@ -100,10 +100,22 @@ public class MyDAOImpl implements MyDAO {
 
 
 	/* MVO관련 */
-	
+	@Override
+	public MVO selectMember() throws Exception{
+		return sqlSessionTemplate.selectOne("member.selectAll");
+	}
+	@Override
+	public MVO selectMVO(String id)throws Exception{
+		return sqlSessionTemplate.selectOne("member.select", id);
+	}
+	@Override
 	public MVO selectLogIn(MVO mvo) throws Exception{
 		return sqlSessionTemplate.selectOne("member.login", mvo );
 	
+	}
+	@Override
+	public int deleteMVO(String id) throws Exception{
+		return sqlSessionTemplate.delete("member.delete", id );
 	}
 	@Override
 	public int selectMVOIdChk(String id) throws Exception{
@@ -114,6 +126,9 @@ public class MyDAOImpl implements MyDAO {
 	public int selectMVOPwdChk(MVO mvo) throws Exception{
 		return sqlSessionTemplate.selectOne("member.select", mvo);
 	}
-
+	@Override
+	public int updateMVO(String id)throws Exception{
+		return sqlSessionTemplate.update("member.update", id);
+	}
 
 }

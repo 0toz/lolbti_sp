@@ -98,11 +98,29 @@ public class MyServiceImpl implements MyService {
 	}
 	
 	/* MVO관련 */
+	
+	
+	
+	@Override
+	public MVO selectMember() throws Exception{
+		return myDAO.selectMember();
+	}
+	@Override
+	public MVO selectMVO(String id)throws Exception{
+		return myDAO.selectMVO(id);
+	}
+	
+	public int deleteMVO(String id) throws Exception{
+		return myDAO.deleteMVO(id);
+	}
 	@Override
 	public int selectMVOIdChk(String id) throws Exception{
 		return myDAO.selectMVOIdChk(id);
 	}
 	
+	public int updateMVO(String id)throws Exception{
+		return myDAO.updateMVO(id);
+	}
 	
 	@Override
 	public int selectMVOPwdChk(MVO mvo) throws Exception{

@@ -53,6 +53,22 @@ color: #f1edd4;
 
 </style>
 
+<script type="text/javascript">
+/* 	function give_pi(){
+		String pi;
+		Calendar cal = Calendar.getInstance();
+		pi = cal.get(Calenar.YEAR)+ (cal.get(Calenar.MONTH)+1)+cal.get(Calenar.DAY_OF_MONTH) + Math.random()*9999
+	} */
+	function test_go(f) {
+		f.action="test_go.do";
+		/* give_pi(); */
+		f.submit();
+		
+	}
+	
+
+
+</script>
 
 </head>
 <body>
@@ -75,7 +91,8 @@ color: #f1edd4;
 				</div>
 			</div>
 			<div class="psy_submit">
-				<a href="">시작하기</a>
+					<input type="hidden"  value="라인테스트" name="test_name">
+					<input type="button" value="테스트하기" onclick="test_go(this.form)" />
 			</div>
 		</div>
 			<div class="psy_link">

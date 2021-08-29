@@ -102,12 +102,15 @@ public interface MyDAO {
 	
 	
 		/* MVO관련 */
+	   	MVO selectMember()throws Exception;
+	   	MVO selectMVO(String id)throws Exception;
 	   	MVO selectLogIn(MVO mvo) throws Exception;
-	
+	   	
+	   	int deleteMVO(String id) throws Exception;
 	   	int selectMVOIdChk(String id)throws Exception;
 	   	
 	   	int selectMVOPwdChk(MVO mvo) throws Exception ;
-		
+		int updateMVO(String id)throws Exception;
 
 	
 	   	

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>마이페이지 > 나의리뷰</title>
+<title>마이페이지 > 테스트결과</title>
 </head>
 <style type="text/css">
 h2 {
@@ -233,99 +233,7 @@ th {
 										<!-- 삭제버튼 누를시 복구버튼으로 전환 -->
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-
-										<td>9</td>
-										<td>영화</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td>책</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td>드라마</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td>드라마</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td>드라마</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>공포</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>공포</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>드라마</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>드라마</td>
-										<td class="tit"><a href="#">공지사항 제목</a></td>
-										<td>관리자</td>
-										<td>5점</td>
-										<td>2019-11-20</td>
-										<td>555</td>
-										<td><input type="button" value="삭제" style="width: 60px;"></td>
-									</tr>
-								</tbody>
+							
 							</table>
 							<div class="paging">
 								<a href="#" class="bt">이전 페이지</a> <a href="#" class="num_on">1</a>

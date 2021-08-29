@@ -75,10 +75,8 @@ DELETE FROM test;
 CREATE SEQUENCE  test_seq
  INCREMENT BY 1 START WITH 1;
 
-
-CREATE SEQUENCE  pi_seq
+CREATE SEQUENCE QnADB_seq
  INCREMENT BY 1 START WITH 1;
-
 //test_seq.nextval
 
 insert into testDB values(test_seq.nextval, '라인테스트', 1, -1,'정글','종종 다른 사람들에게 자신을 정당화시켜야 할 것 만 같은 기분이 듭니다.');

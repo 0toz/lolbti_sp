@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,7 @@ margin-top : 20px;
 				<table>
 					<tbody>
 						
-						<c:forEach var="k" items="${list}">
+						<c:forEach var="k" items="${list}" begin="0" end="10">
 							<tr>
 								<th class="bg">테스트이름</th>
 								<td><input type="text" name="test_name" required></td>

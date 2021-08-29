@@ -3,10 +3,12 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
+
+
+
 <mapper namespace="QnA">
 	
 	<!-- 건의사항 게시판에 관련된 DB -->
-	
 	
 	<select id="count" resultType="int">
 		select count(*) from QnADB
@@ -26,16 +28,26 @@
 		insert into QnADB values(QnADB_seq.nextval, #{kind},#{id},#{title},#{content}, #{nickname},  #{hit}, #{groups}, sysdate,
 		,#{file_name}, #{f_name})
 	</insert>
+	<!-- 원글 삭제 -->
+	<delete id="delete" parameterType="String">
+		delete from QnADB where idx = #{idx}
+	</delete>
 	
+	<!-- 원글 업데이트 -->
+	<update id="update" parameterType="com.ict.vo.QVO">
+		update QnADB set title=#{title}, kind=#{kind}, 
+				content=#{content}, file_name=#{file_name}, f_name=#{f_name} where idx = #{idx}
+	</update>
+	<!-- 원글 상세보기 -->
+	<select id="onelist" parameterType="String" resultType="com.ict.vo.QVO">
+		select * from QnADB where group = #{group}
+	</select>
 	<!-- 원글 hit 업데이트 -->
 	<update id="hitup" parameterType="String">
 		update QnADB set hit = hit + 1 where group = #{group}
 	</update>
 	
-	<!-- 원글 상세보기 -->
-	<select id="onelist" parameterType="String" resultType="com.ict.vo.QVO">
-		select * from QnADB where group = #{group}
-	</select>
+	
 	
 	<!-- 댓글 가져오기 -->
 	<select id="c_list" parameterType="String" resultType="com.ict.vo.CVO">
@@ -56,16 +68,7 @@
 	<delete id="c_delete_all" parameterType="String">
 		delete from comment_DB where c_idx = #{c_idx}
 	</delete>
-	<!-- 원글 삭제 -->
-	<delete id="delete" parameterType="String">
-		delete from QnADB where idx = #{idx}
-	</delete>
-	
-	<!-- 원글 업데이트 -->
-	<update id="update" parameterType="com.ict.vo.QVO">
-		update QnADB set title=#{title}, kind=#{kind}, 
-				content=#{content}, file_name=#{file_name} where idx = #{idx}
-	</update>
+
 	
 </mapper>
 

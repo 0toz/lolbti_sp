@@ -7,6 +7,9 @@
 	<select id="select_test_result" resultType="com.ict.vo.Test_AnswerVO">
 		select * from (select * from testAnswer) ta, (select * from userDB) u where ta.pi = #{pi} order by ta.exm_num asc;
 	</select>
+	<select id="selectAll" resultType="com.ict.vo.MVO">
+		select * from userDB
+	</select>
 	<select id="select" resultType="com.ict.vo.MVO">
 		select * from userDB where id = #{id}
 	</select>
@@ -17,7 +20,7 @@
 	<delete id="delete" parameterType="String">
 		delete from userDB where id = #{id}
 	</delete>
-	<update id="update" parameterType="com.ict.vo.MVO">
+	<update id="updateMVO" parameterType="com.ict.vo.MVO">
 		update userDB set pwd=#{pwd}, nickname=#{nickname}, gender=#{gender}, email=#{email} where id=#{id}
 	</update>
 	<select id="login" parameterType="com.ict.vo.MVO" resultType="com.ict.vo.MVO">

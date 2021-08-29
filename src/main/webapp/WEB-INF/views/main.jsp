@@ -84,8 +84,7 @@
 				테스트에대해서 설명하는 글대충 테스트에대해서 설명하는 글대충 테스트에대해서 설명하는 글대충 테스트에대해서 설명하는 글</p>
 			</div>
 			<div class="art_img">
-				<img alt="그림" src="../images/Teemo_18.jpg" width="100%"
-					height="100%">
+				<img alt="그림" src="../images/Teemo_18.jpg" width="100%" height="100%">
 			</div>
 
 

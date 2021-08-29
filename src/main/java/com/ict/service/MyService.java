@@ -62,11 +62,12 @@ public interface MyService {
 	
 	
 	/* MVO관련 */
-	
+	MVO selectMember() throws Exception;
 	int selectMVOIdChk(String id) throws Exception;
-	
+	MVO selectMVO(String id)throws Exception;
+	int deleteMVO(String id) throws Exception;
 	// 비번 체크 
 	int selectMVOPwdChk(MVO mvo) throws Exception ;
-	
+	int updateMVO(String id)throws Exception;
 	MVO selectLogIn(MVO mvo) throws Exception;
 }

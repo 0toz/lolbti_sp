@@ -110,6 +110,12 @@ public class MyController {
 
 	/* 테스트DB관련 */
 
+	@RequestMapping("test_list.do")
+	public ModelAndView test_list_goCommand() {
+		return new ModelAndView("test_list");
+	}
+	
+	
 	@RequestMapping("test_main.do")
 	public ModelAndView Test_mainCommand() {
 		try {
@@ -234,7 +240,7 @@ public class MyController {
 			int count = 0;
 			int su = Integer.parseInt(request.getParameter("su"));
 			
-			List<TestVO> testList = new ArrayList(); 
+			List<TestVO> testList = new ArrayList<TestVO>(); 
 			while(su > count) {
 				testList.add(testvo);
 				count++;
@@ -411,8 +417,6 @@ public ModelAndView QVO_Ans_Write_OKCommand(QVO qvo,HttpServletRequest request,
 	try {
 		// groups,step, lev 를 구하자 
 		QVO vo2 = myService.selectQVOOneList(qvo.getIdx());
-		
-
 		int groups = Integer.parseInt(vo2.getGroups());
 		
 		
@@ -421,7 +425,6 @@ public ModelAndView QVO_Ans_Write_OKCommand(QVO qvo,HttpServletRequest request,
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("groups", groups);
 
-		
 		qvo.setGroups(String.valueOf(groups));
 		
 		// 파일 처리 
@@ -551,8 +554,68 @@ public String chk_id_overlapCommand(@ModelAttribute("id")String id) {
 	return null;
 }
 
+	@RequestMapping("member_list.do")
+	public ModelAndView memberlistCommand() {
+		try {
+			ModelAndView mv = new ModelAndView("member_list");
+			
+			MVO mvo = myService.selectMember();
+			
+			mv.addObject("mvo",mvo);
+			
+			return mv;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	
+	
+	@RequestMapping("memberInfo_go.do")
+	public ModelAndView memberInfoCommand() {
+		try {
+			ModelAndView mv = new ModelAndView("MyPage_info");
+			MVO mvo = myService.selectMVO("id");
+			mv.addObject("mvo",mvo);
+			return mv;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	
+	
+	
+	@RequestMapping("member_update_go.do")
+	public String memberUpdateCommand() {
+		try {
+			int result = myService.updateMVO("id");
+			return String.valueOf(result);
+		} catch (Exception e) {
+		}
+		return null;
+	}
 
+	@RequestMapping("member_delete_go.do")
+	public ModelAndView deleteMVOCommand(@ModelAttribute("qPage")String qPage,
+			@RequestParam("idx")String idx) {
+		try {
+			QVO qvo = myService.selectQVOOneList(idx);
+			// 원글과 댓글 구분해서 삭제 하자
+			int result = 0 ;
 
-
-
+				// 원글일 경우 댓글 전체 삭제 
+				result = myService.deleteQVO(qvo.getGroups());
+			if(result>0) {
+				return new ModelAndView("redirect:list.do");
+			}
+			
+		} catch (Exception e) {
+		}
+		return null;
+	}
 }
