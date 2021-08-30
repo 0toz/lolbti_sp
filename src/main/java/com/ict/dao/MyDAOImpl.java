@@ -21,36 +21,36 @@ public class MyDAOImpl implements MyDAO {
 	
 	@Override
 	public List<TestVO> selectTestList(String test_name) throws Exception {
-		return sqlSessionTemplate.selectList("testDB.select",test_name);
+		return sqlSessionTemplate.selectList("testdb.select",test_name);
 	}
 
 
 	@Override
 	public int insertTest(TestVO testvo) throws Exception{
-		return sqlSessionTemplate.insert("testDB.insert", testvo);
+		return sqlSessionTemplate.insert("testdb.insert", testvo);
 	
 	}
 	@Override
 	public int updateTest(TestVO testvo)throws Exception{
-		return sqlSessionTemplate.update("testDB.insert", testvo);
+		return sqlSessionTemplate.update("testdb.insert", testvo);
 	}
 
 
 	@Override
 	public int deleteTest(String test_name) throws Exception {
-		return sqlSessionTemplate.delete("testDB.delete", test_name);
+		return sqlSessionTemplate.delete("testdb.delete", test_name);
 	}
 	
 	@Override
 	public int insertMainTest(TestMainVO testmainvo) throws Exception{
-		return sqlSessionTemplate.insert("testDB.insertMain", testmainvo);
+		return sqlSessionTemplate.insert("testdb.insertMain", testmainvo);
 	}
 	
 	
 	/* QVO관련 */
 	@Override
 	public int selectQVOCount() throws Exception {
-		return sqlSessionTemplate.selectOne("QnA.count");
+		return sqlSessionTemplate.selectOne("qna.count");
 	}
 
 	@Override
@@ -58,42 +58,42 @@ public class MyDAOImpl implements MyDAO {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("begin", begin);
 		map.put("end", end);
-		return sqlSessionTemplate.selectList("QnA.list", map);
+		return sqlSessionTemplate.selectList("qna.list", map);
 	}
 
 	@Override
 	public int InsertQVO(QVO qvo) throws Exception {
-		return sqlSessionTemplate.insert("QnA.insert", qvo);
+		return sqlSessionTemplate.insert("qna.insert", qvo);
 	}
 
 	@Override
 	public int updateQVOHit(String idx) throws Exception {
-		return sqlSessionTemplate.update("QnA.updateHit", idx);
+		return sqlSessionTemplate.update("qna.updateHit", idx);
 	}
 
 	@Override
 	public QVO selectQVOOneList(String idx) throws Exception {
-		return sqlSessionTemplate.selectOne("QnA.oneList", idx);
+		return sqlSessionTemplate.selectOne("qna.oneList", idx);
 	}
 
 	@Override
 	public int InsertQVOAns(QVO qvo) throws Exception {
-		return sqlSessionTemplate.insert("QnA.ans_insert", qvo);
+		return sqlSessionTemplate.insert("qna.ans_insert", qvo);
 	}
 	
 
 	@Override
 	public int updateQVOList(QVO qvo) throws Exception {
-		return sqlSessionTemplate.update("QnA.update",qvo);
+		return sqlSessionTemplate.update("qna.update",qvo);
 	}
 	@Override
 	public int deleteQVO(String groups) throws Exception {
-		return sqlSessionTemplate.delete("QnA.delete", groups);
+		return sqlSessionTemplate.delete("qna.delete", groups);
 	}
 
 	@Override
 	public int deleteQVOAns(String idx) throws Exception {
-		return sqlSessionTemplate.delete("QnA.delete_ans", idx);
+		return sqlSessionTemplate.delete("qna.delete_ans", idx);
 	}
 
 

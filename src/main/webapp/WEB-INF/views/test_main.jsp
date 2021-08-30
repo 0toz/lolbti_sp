@@ -59,6 +59,10 @@ color: #f1edd4;
 		Calendar cal = Calendar.getInstance();
 		pi = cal.get(Calenar.YEAR)+ (cal.get(Calenar.MONTH)+1)+cal.get(Calenar.DAY_OF_MONTH) + Math.random()*9999
 	} */
+	const d = new Date(year, month, day, hours);
+	document.getElementById("pi").innerHTML =
+		d + (String)Math.floor(Math.random() * 1000);
+	
 	function test_go(f) {
 		f.action="test_go.do";
 		/* give_pi(); */
@@ -78,8 +82,10 @@ color: #f1edd4;
 
 <div id="all">
 	<div>
+	<input type="hidden"  id="pi" name="pi">
+	
 		<div >
-			<img  class="psytest_img" alt="당신을위한 라인은 어디?" src="../images/lane.jpg" >
+			<img  class="psytest_img" alt="당신을위한 라인은 어디?" src="/resources/images/lane.jpg" >
 		</div>
 		<div class="psytest">
 			<div>
@@ -96,7 +102,7 @@ color: #f1edd4;
 			</div>
 		</div>
 			<div class="psy_link">
-				<a href=""><img alt="카카오톡" src=""></a>
+				<a href=""><img alt="카카오톡" src="/resources/images/kakao.png"></a>
 				<a href=""><i class="fab fa-facebook-square" style="font-size:48px;"></i></a>
 				<a href=""><i class="fab fa-twitter-square" style="font-size:48px;"></i></a>
 				<a href=""><i class="fas fa-link" style="font-size:40px; "></i></a>
@@ -104,7 +110,7 @@ color: #f1edd4;
 	</div>
 	<div>
 		<div>
-			<img class="psytest_img" alt="당신을위한 라인은 어디?" src="../images/whereUR.jpg">
+			<img class="psytest_img" alt="당신을위한 라인은 어디?" src="/resources/images/whereUR.jpg">
 		</div>
 		<div class="psytest">
 			<div>
@@ -120,7 +126,7 @@ color: #f1edd4;
 			</div>
 		</div>
 			<div class="psy_link">
-				<a href=""><img alt="카카오톡" src=""></a>
+				<a href=""><img alt="카카오톡" src="/resources/images/kakao.png"></a>
 				<a href=""><i class="fab fa-facebook-square" style="font-size:48px;"></i></a>
 				<a href=""><i class="fab fa-twitter-square" style="font-size:48px;"></i></a>
 				<a href=""><i class="fas fa-link" style="font-size:40px; "></i></a>

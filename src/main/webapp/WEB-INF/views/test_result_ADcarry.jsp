@@ -67,7 +67,7 @@ width: 192px;
 			
 		<div class="result">
 			<div style="padding: 30px;">
-			<img alt="테스트 결과이미지" src="../images/top.png">
+			<img alt="테스트 결과이미지" src="/resources/images/top.png">
 			</div>
 			<div class="r_title">
 				외롭고 고독한 라인 '탑' 라인 입니다.
@@ -88,7 +88,7 @@ width: 192px;
 			결과 공유하기
 		</div>
 		<div class="psy_link">
-			<a href=""><img alt="카카오톡" src=""></a>
+			<a href=""><img alt="카카오톡" src="/resources/images/kakao.png"></a>
 			<a href=""><i class="fab fa-facebook-square" style="font-size:48px;"></i></a>
 			<a href=""><i class="fab fa-twitter-square" style="font-size:48px;"></i></a>
 			<a href=""><i class="fas fa-link" style="font-size:40px; "></i></a>
@@ -101,15 +101,15 @@ width: 192px;
 		</div>
 	 	<div class="test_list">
 	 		<div class="test_list_mini" >
-		 		<a href=""><img alt="" src="../images/lane.jpg" width="90%" height="90%"></a>
+		 		<a href=""><img alt="" src="/resources/images/lane.jpg" width="90%" height="90%"></a>
 		 		<h5>라인테스트</h5>
 	 		</div>
 	 		<div class="test_list_mini" >
-		 		<a href=""><img alt="" src="../images/lane.jpg" width="90%" height="90%"></a>
+		 		<a href=""><img alt="" src="/resources/images/lane.jpg" width="90%" height="90%"></a>
 		 		<h5>라인테스트</h5>
 	 		</div>
 	 		<div class="test_list_mini">
-		 		<a href=""><img alt="" src="../images/lane.jpg" width="90%" height="90%"></a>
+		 		<a href=""><img alt="" src="/resources/images/lane.jpg" width="90%" height="90%"></a>
 		 		<h5>라인테스트</h5>
 	 		</div>
 	 	</div>

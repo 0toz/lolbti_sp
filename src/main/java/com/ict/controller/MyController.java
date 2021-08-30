@@ -43,7 +43,7 @@ public class MyController {
 
 	@RequestMapping("login.do")
 	public ModelAndView logInCommand() {
-		return new ModelAndView("login");
+		return new ModelAndView("user_login");
 	}
 	
 	@RequestMapping("login_ok.do")
@@ -72,6 +72,19 @@ public class MyController {
 		return null;
 	}
 	
+	
+
+	@RequestMapping(value = "join_ok.do", method = RequestMethod.POST)
+	public ModelAndView joinCommand(MVO mvo, HttpServletRequest request) {
+		try {
+			int result = myService.insertMVO(mvo);
+				return new ModelAndView("redirect:testMain.do");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
 
 	
 	
@@ -86,7 +99,16 @@ public class MyController {
 	
 
 
-	
+	@RequestMapping("test_result_list.do")
+	public ModelAndView test_result_listCommand() {
+		try {
+			ModelAndView mv = new ModelAndView("test_result_list");
+			return mv;
+		} catch (Exception e) {
+			System.out.println(e);
+			return new ModelAndView("error");
+		}
+	}
 	
 	
 	
@@ -116,7 +138,7 @@ public class MyController {
 	}
 	
 	
-	@RequestMapping("test_main.do")
+	@RequestMapping("test_main_go.do")
 	public ModelAndView Test_mainCommand() {
 		try {
 			ModelAndView mv = new ModelAndView("test_main");
@@ -150,9 +172,11 @@ public class MyController {
 
 	
 	@RequestMapping("test_result.do")
-	public ModelAndView Test1_resultCommand() {
+	public ModelAndView Test1_resultCommand(@RequestParam("lane")String lane) {
 		try {
-			ModelAndView mv = new ModelAndView("test_result");
+			String gotolane = "test_result_" + lane;
+			
+			ModelAndView mv = new ModelAndView("gotolane");
 			return mv;
 		} catch (Exception e) {
 			System.out.println(e);

@@ -10,12 +10,12 @@
 		margin:0; padding:0;
 	}
 	
-	footer a:visited,a:hover,a:link{
+	footer a:visited, footer a:hover,footer a:link{
 		color:white;
 	}
 	footer{
 		display: grid;
-		grid-template-columns: 250px  1fr 250px;
+		grid-template-columns: 120px  1fr 230px;
 		background-color: #84b7b8;
 		color:white;
 		width:100%;

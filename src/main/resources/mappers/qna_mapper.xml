@@ -6,7 +6,7 @@
 
 
 
-<mapper namespace="QnA">
+<mapper namespace="qna">
 	
 	<!-- 건의사항 게시판에 관련된 DB -->
 	
@@ -26,7 +26,7 @@
 	<!-- 원글 삽입 -->
 	<insert id = "insert" parameterType="com.ict.vo.QVO">
 		insert into QnADB values(QnADB_seq.nextval, #{kind},#{id},#{title},#{content}, #{nickname},  #{hit}, #{groups}, sysdate,
-		,#{file_name}, #{f_name})
+		,#{file_name})
 	</insert>
 	<!-- 원글 삭제 -->
 	<delete id="delete" parameterType="String">
@@ -36,7 +36,7 @@
 	<!-- 원글 업데이트 -->
 	<update id="update" parameterType="com.ict.vo.QVO">
 		update QnADB set title=#{title}, kind=#{kind}, 
-				content=#{content}, file_name=#{file_name}, f_name=#{f_name} where idx = #{idx}
+				content=#{content}, file_name=#{file_name} where idx = #{idx}
 	</update>
 	<!-- 원글 상세보기 -->
 	<select id="onelist" parameterType="String" resultType="com.ict.vo.QVO">

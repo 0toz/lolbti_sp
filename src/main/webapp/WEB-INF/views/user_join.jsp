@@ -33,20 +33,30 @@ a:hover {
 <script type="text/javascript">
 
 	function join_ok(f) {
-		if(f.pwd.value != f.re_pwd.value){ 
-		alert("영어와 숫자를 결합한 비밀번호로 설정하십시오");
-		f.pwd.value = "";
-		f.re_pwd.value = "";
-		f.pwd.focus();
-		}else{
 		f.action = "join_ok.do";
 		f.submit();
-		}
 	}
 	function chk_id_overlap(f){
 		f.action = "chk_id_overlap.do";
 		f.submit();
 	}
+	  function pwdChk() {
+		    var pw1 = document.getElementById( 'pwd' ).value;
+		    var pw2 = document.getElementById( 're_pwd' ).value;
+		    if(pw.length<4 || pw.length>10){
+		    	alert('비밀번호 4글자이상 10글자 이하로입력해주세요')
+		    	document.getElementById('pw').value='';
+		    }else if ( pw1 != pw2 ) {
+		      alert( '다시입력한 비밀번호와 일치하지않습니다' );
+		      #{pwd} ="";
+		      #{re_pwd} ="";
+		      #{pwd}.focus();
+		      return false;
+		    }
+	  }
+	 
+	
+	
 </script>
 
 </head>
@@ -80,14 +90,14 @@ a:hover {
 					</tr>
 					<tr style="border: 2px solid black;">
 						<td class="td-head">PASSWORD</td>
-						<td style="width: 35%;"><input type="text" name="a" value=""></td>
+						<td style="width: 35%;"><input type="password" id="pwd" name="pwd" value=""></td>
 						<td rowspan="2" style="width: 30%;"><div class="alertMsgBox"></div></td>
 					</tr>
 					<tr>
 						<td class="td-head">PASSWORD 재입력</td>
-						<td><input type="text" id="re_pwd" name="re_password"
+						<td><input type="password" id="re_pwd" name="re_pwd"
 							value=""></td>
-							
+						<td> <input type="button" value="비밀번호재입력확인" onclick="pwdChk()"></td>	
 					</tr>
 					<tr>
 						<td colspan="3"

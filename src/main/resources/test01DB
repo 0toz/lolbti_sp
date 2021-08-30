@@ -1,7 +1,6 @@
 create table testDBMain(
 test_name varchar2(40),
 file_name varchar2(100),
-f_name varchar2(100),
 dsc varchar2(40),
 PRIMARY KEY(test_name)
 );
@@ -35,7 +34,7 @@ pwd varchar2(40),
 nickname varchar2(30) UNIQUE,
 gender varchar2(6),
 email varchar2(40),
-reg varchar(20),
+reg date,
 pi varchar2(20),
 PRIMARY KEY(id)
 );
@@ -49,9 +48,8 @@ content varchar2(1000),
 nick_name varchar2(30) unique,
 hit number,
 groups varchar2(10),
-reg varchar2(20),
+reg date,
 file_name varchar2(100),
-f_name varchar2(100),
 PRIMARY KEY(idx)
 );
 
@@ -61,10 +59,19 @@ id varchar2(40),
 nickname varchar2(30),
 title varchar2(200),
 groups varchar2(10),
-reg varchar(20),
+reg date,
 PRIMARY KEY(c_idx),
 foreign key(id) references userDB(id)
 );
+
+
+drop table userDB;
+drop table QnADB;
+drop table comment_DB;
+drop table testanswer;
+drop table testdbmain;
+drop table testdb;
+
 
 drop table test;
 drop table test_answer;
